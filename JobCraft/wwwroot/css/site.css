@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian&display=swap');
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    background: #D6CE15 !important;
+}
+
+a.navbar-brand {
+    word-break: normal !important;
+    font-family: 'Itim', cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar li {
+    font-family: 'Noto Serif Georgian', serif;
+    color: black;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.authorization {
+    font-family: 'Noto Serif Georgian', serif;
+    border-radius: 10px;
+    background: rgba(6,52,115,0.07);
+    padding: 12px;
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    color: #063473 !important;
+}
+
+.authorization:hover {
+    color: white !important;
+    background: #063473;
+}
+
+.navbar .container-fluid {
+    margin: 25px 0px 25px 0px;
+}
+
+.personIcon {
+    display: none;
+    font-size: 30px;
+}
+
+.personIcon a i {
+    color: black;
+}
+
+header{
+    padding-bottom:112px;
+}
+.banner {
+    background: #D6CE15;
+}
+/*Medias*/
+
+@media only screen and (max-width: 991px) {
+    .authDiv {
+        display: none;
+    }
+
+    .navbar-nav {
+        width: 100%;
+    }
+
+    .personIcon {
+        display: block;
+        position: absolute;
+        right: 80px;
+        top:31px;
+    }
+}
