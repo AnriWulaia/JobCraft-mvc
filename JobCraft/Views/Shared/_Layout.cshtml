@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> userManager
+@{
+    var user = userManager.GetUserAsync(User).Result;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -42,19 +47,26 @@
                     <div class="col-lg-2"></div>
                 </div>
                 <div class="personIcon">
-                    <a href="" type="button"><i class="bi bi-person"></i></a>
+                    <a href="@(!User.Identity.IsAuthenticated ? "/Authorization" : "")" type="button"><i class="bi bi-person"></i></a>
                 </div>
-                <div class="col-lg-4 d-lg-flex authDiv">
-                    <a class="btn authorization" href="/Authorization">ავტორიზაცია/რეგისტრაცია</a>
-                </div>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <div class="col-lg-4 d-lg-flex authDiv">
+                        <a class="btn authorization" href="/Authorization">ავტორიზაცია/რეგისტრაცია</a>
+                    </div>
+                }
+@*                @user.Firstname @user.Lastname*@
+
+
+
             </div>
         </nav>
 
 
     </header>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">

@@ -38,6 +38,9 @@ a {
 
 .navbar {
     background: #D6CE15 !important;
+    box-shadow: 1px 5px 7px 1px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 1px 5px 7px 1px rgba(0,0,0,0.05);
+    -moz-box-shadow: 1px 5px 7px 1px rgba(0,0,0,0.05);
 }
 
 a.navbar-brand {
@@ -89,9 +92,45 @@ header{
 }
 .banner {
     background: #D6CE15;
+    font-size: 2.1rem;
+    padding: 30px;
+    font-family: 'Noto Serif Georgian', serif;
 }
-/*Medias*/
+.registerButton {
+    font-family: 'Noto Serif Georgian', serif;
+    border-radius: 10px;
+    background: #063473;
+    padding: 15px;
+    font-size: 0.9rem;
+    letter-spacing: 0.03rem;
+    color: white;
+}
+.registerButton:hover {
+    background: #D6CE15;
+    color:white;
+}
+.mainContent{
+    margin-top:40px;
+}
+.form-group{
+    margin-top:10px;
+}
+.form-group input {
+    border: 0;
+    background-color: #f0f5f7;
+    padding: 10px 10px;
+    border-radius: 10px;
+    -webkit-transition: all 0.5s ease-in;
+    -o-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+}
+.form-group input:focus {
+    border: 1px solid #063473; 
+    background-color: #fff;
+    box-shadow:none;
+}
 
+/*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {
         display: none;
@@ -106,5 +145,10 @@ header{
         position: absolute;
         right: 80px;
         top:31px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    header{
+        padding-bottom:104px;
     }
 }

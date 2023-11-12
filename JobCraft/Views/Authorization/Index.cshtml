@@ -1,45 +1,98 @@
-﻿@model JobCraft.Models.RegistrationModel
+﻿@model JobCraft.Models.LoginRegisterViewModel
 @{
     ViewData["Title"] = "Authorization";
 }
-<div class="contaienr-fluid banner">daghdahdgadh</div>
-<div class="container">
-    <h2>Register</h2>
+<div class="contaienr-fluid banner text-center">შესვლა/რეგისტრაცია</div>
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="container mainContent">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h2>Create a free account</h2>
 
-    <form asp-controller="Authorization" asp-action="Register" method="post" class="form-horizontal">
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="FirstName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <form asp-controller="Authorization" asp-action="Register" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label asp-for="RegistrationModel.FirstName" class="control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="RegistrationModel.FirstName" class="form-control" aria-required="true" placeholder="First Name" />
+                            <span asp-validation-for="RegistrationModel.FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegistrationModel.LastName" class="control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="RegistrationModel.LastName" class="form-control" aria-required="true" placeholder="Last Name" />
+                            <span asp-validation-for="RegistrationModel.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegistrationModel.Email" class="control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="RegistrationModel.Email" class="form-control" type="email" aria-required="true" placeholder="Email" />
+                            <span asp-validation-for="RegistrationModel.Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegistrationModel.Password" class="control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="RegistrationModel.Password" class="form-control" type="password" aria-required="true" placeholder="Password" />
+                            <span asp-validation-for="RegistrationModel.Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegistrationModel.PasswordConfirm" class="control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="RegistrationModel.PasswordConfirm" class="form-control" type="password" aria-required="true" placeholder="Confirm Password" />
+                            <span asp-validation-for="RegistrationModel.PasswordConfirm" class="text-danger"></span>
+                        </div>
+                    </div>
+                    @if (TempData["msg"] != null)
+                    {
+                        <div class="alert-warning p-3 mt-2">
+                            @TempData["msg"]
+                        </div>
+                    }
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <button type="submit" class="btn btn-default registerButton mt-3 w-100">რეგისტრაცია</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-md-6 col-sm-12">
+                <h2>Login</h2>
+                <form asp-controller="Authorization" asp-action="Login" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label asp-for="LoginModel.Email" class="control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="LoginModel.Email" class="form-control" type="email" aria-required="true" placeholder="Email" />
+                            <span asp-validation-for="LoginModel.Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LoginModel.Password" class="control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="LoginModel.Password" class="form-control" type="password" aria-required="true" placeholder="Password" />
+                            <span asp-validation-for="LoginModel.Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    @if (TempData["msg"] != null)
+                    {
+                        <div class="alert-warning p-3 mt-2">
+                            @TempData["msg"]
+                        </div>
+                    }
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <button type="submit" class="btn btn-default registerButton mt-3 w-100">შესვლა</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="Email" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Password" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PasswordConfirm" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PasswordConfirm" class="form-control" />
-                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-default">Register</button>
-            </div>
-        </div>
-    </form>
-</div>
+    </div>
+}else{
+    <h1 class="text-center mt-3 text-danger">You are already logged in!</h1>
+}
