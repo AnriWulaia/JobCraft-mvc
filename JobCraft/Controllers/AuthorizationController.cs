@@ -62,7 +62,7 @@ namespace JobCraft.Controllers
         public async Task<IActionResult> Logout()
         {
             await _userAuthenticationService.LogOutAsync();
-            return RedirectToAction(nameof(Login));
+            return RedirectToAction(nameof(Index));
         }
     }
 }

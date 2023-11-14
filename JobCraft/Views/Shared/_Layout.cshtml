@@ -49,28 +49,75 @@
                 <div class="personIcon">
                     <a href="@(!User.Identity.IsAuthenticated ? "/Authorization" : "")" type="button"><i class="bi bi-person"></i></a>
                 </div>
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <div class="col-lg-4 d-lg-flex authDiv">
+                <div class="col-lg-4 d-lg-flex authDiv userProfile">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
                         <a class="btn authorization" href="/Authorization">ავტორიზაცია/რეგისტრაცია</a>
-                    </div>
-                }
-@*                @user.Firstname @user.Lastname*@
-
-
-
-            </div>
+                    }
+                    else
+                    {
+                        <div class="name"><a>@user.Firstname @user.Lastname</a> <i class="bi bi-caret-down-fill ms-1"></i></div>
+                    }
+                    <ul class="menu">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-menu-button-wide pe-3"></i>მართვის პანელი</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person pe-3"></i>პროფილი</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-shield-lock pe-3"></i>პაროლის შეცვლა</a></li>
+                        <li><a class="dropdown-item" href="Authorization/Logout"><i class="bi bi-box-arrow-right pe-3"></i>გამოსვლა</a></li>
+                    </ul>
+                </div>
         </nav>
 
 
     </header>
-    <main role="main" class="pb-3">
+    <main role="main" class="pb-6">
         @RenderBody()
     </main>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - JobCraft - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-sm-6 col-lg-2 col-12">
+                    <div class="d-flex flex-column">
+                        <div class="w-100 text-center site-title">
+                            <a class="navbar-brand text-black" asp-controller="Home" asp-action="Index">JobCraft</a>
+                        </div>
+                        <div class="contact-box mt-4">
+                            <ul class="list-unstyled">
+                                <li>დაგვიკავშირდით</li>
+                                <li>+995 555 123 456</li>
+                                <li>info@jobcraft.ge</li>
+                                <li>თბილისი, საქართველო</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 col-sm-3 d-flex justify-content-center">
+                    <img src="images/Doodle_footer.png" class="img-fluid footer-img" />
+                </div>
+                <div class="col-sm-4 col-12 info-box">
+                    <p class="information-menu">ინფორმაციის მენიუ</p>
+                    <div class="contact-box mt-4">
+                        <ul class="list-unstyled">
+                            <li><a href="" class="hover-effect">ჩვენ შესახებ</a></li>
+                            <li><a href="/pricing" class="hover-effect">ფასები</a></li>
+                            <li><a href="" class="hover-effect">წესები და პირობები</a></li>
+                            <li><a href="" class="hover-effect">მონაცემთა დაცვის პოლიტიკა</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-sm-2 col-12 credits">
+                    <p>© 2023 JobCraft. ყველა უფლება დაცულია.</p>
+                </div>
+                <div class="col-sm-4 col-12"></div>
+                <div class="col-lg-4 col-12">
+                    dadad
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

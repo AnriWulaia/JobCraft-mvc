@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian&display=swap');
-
+:root {
+    --text: #063473;
+}
 html {
     font-size: 14px;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -10,18 +13,6 @@ html {
         font-size: 16px;
     }
 }
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    margin-bottom: 60px;
-}
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -30,6 +21,9 @@ body {
 
 body {
     font-family: "Poppins", sans-serif;
+}
+main{
+    padding-bottom:4em;
 }
 
 a {
@@ -66,12 +60,12 @@ a.navbar-brand {
     padding: 12px;
     font-size: 0.9rem;
     letter-spacing: 0.05rem;
-    color: #063473 !important;
+    color: var(--text) !important;
 }
 
 .authorization:hover {
     color: white !important;
-    background: #063473;
+    background: var(--text);
 }
 
 .navbar .container-fluid {
@@ -99,7 +93,7 @@ header{
 .registerButton {
     font-family: 'Noto Serif Georgian', serif;
     border-radius: 10px;
-    background: #063473;
+    background: var(--text);
     padding: 15px;
     font-size: 0.9rem;
     letter-spacing: 0.03rem;
@@ -125,9 +119,86 @@ header{
     transition: all 0.5s ease-in;
 }
 .form-group input:focus {
-    border: 1px solid #063473; 
+    border: 1px solid var(--text); 
     background-color: #fff;
     box-shadow:none;
+}
+.userProfile{
+    cursor:pointer;
+}
+.userProfile:hover {
+    color: var(--text);
+}
+.menu{
+    position:absolute;
+    background:white;
+    top:80px;
+    padding-left:0;
+    list-style:none;
+    border-radius:5px;
+    padding:5px 10px 5px 10px;
+    margin-left:-90px;
+}
+.menu li a {
+    color: black;
+    padding: 10px 20px 10px 20px;
+    border-radius: 7px;
+}
+.footer-img{
+    max-width:220px;
+}
+.information-menu {
+    font-family: 'Noto Serif Georgian', serif;
+    color: var(--text);
+    font-weight:bold;
+    font-size:1.2rem;
+}
+.credits {
+    font-family: 'Noto Serif Georgian', serif;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+.footer-img{
+    margin-top:-20px;
+}
+footer{
+    padding-top:20px;
+}
+.contact-box a{
+    font-family: 'Noto Serif Georgian', serif;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+.pb-6{
+    padding-bottom:6rem;
+}
+.hover-effect {
+    display: inline-block;
+    position: relative;
+    transition: padding-left 0.4s ease-in-out; 
+}
+
+.hover-effect::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--text);
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transition: width 0.4s ease-in-out;
+}
+
+.hover-effect:hover::before {
+    width: 14px;
+}
+
+.hover-effect:hover {
+    padding-left: 20px; 
+}
+.price-box{
+    border-radius:10px;
+    background: var(--text);
 }
 
 /*Medias*/
@@ -146,9 +217,26 @@ header{
         right: 80px;
         top:31px;
     }
+    .site-title{
+        text-align:left !important;
+    }
 }
 @media only screen and (max-width: 767px) {
     header{
         padding-bottom:104px;
+    }
+    .login-module{
+        margin-top:30px;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .contact-box, .info-box, .information-menu {
+        text-align: center;
+    }
+    .credits {
+        white-space: pre-line;
+    }
+    .site-title {
+        text-align: center !important;
     }
 }
