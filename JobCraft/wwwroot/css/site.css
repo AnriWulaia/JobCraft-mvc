@@ -153,10 +153,16 @@ header{
     font-weight:bold;
     font-size:1.2rem;
 }
-.credits {
+.credits, .socials a {
     font-family: 'Noto Serif Georgian', serif;
     color: var(--text);
     font-size: 0.95rem;
+}
+.socials a:first-child{
+    margin-left:0px;
+}
+.socials a {
+    margin-left: 20px;
 }
 .footer-img{
     margin-top:-20px;
@@ -200,7 +206,27 @@ footer{
     border-radius:10px;
     background: var(--text);
 }
-
+.pricing-info {
+    font-family: 'Noto Serif Georgian', serif;
+}
+.pricing-info p{
+    color: #fccb12;
+    font-size:1.1rem;
+}
+.pricing-info h4{
+    color:#fff;
+    font-weight:bold;
+}
+.pricing-info ul{
+    color:#fff;
+    font-size:0.9rem;
+}
+.pricing-info ul li i {
+    font-size: 20px;
+    margin-top: 5px;
+    color: #fccb12;
+    padding-right:5px;
+}
 /*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {
@@ -220,6 +246,13 @@ footer{
     .site-title{
         text-align:left !important;
     }
+    .premium-box{
+        margin-top:20px;
+    }
+    .innerContent {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
 }
 @media only screen and (max-width: 767px) {
     header{
@@ -230,12 +263,14 @@ footer{
     }
 }
 @media only screen and (max-width: 575px) {
-    .contact-box, .info-box, .information-menu {
+    .contact-box, .info-box, .information-menu, .credits, .socials {
         text-align: center;
     }
-    .credits {
-        white-space: pre-line;
-    }
+        .credits p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            white-space: normal;
+        }
     .site-title {
         text-align: center !important;
     }
