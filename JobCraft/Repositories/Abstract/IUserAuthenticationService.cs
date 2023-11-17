@@ -7,8 +7,8 @@ namespace JobCraft.Repositories.Abstract
 {
     public interface IUserAuthenticationService
     {
-        Task<bool> LoginAsync(LoginModel model);
+        Task<Status> LoginAsync(LoginModel model);
         Task LogOutAsync();
-        Task<bool> RegisterAsync(RegistrationModel model);
+        Task<Status> RegisterAsync(RegistrationModel model);
     }
 }

@@ -2,9 +2,12 @@
 using JobCraft.Repositories.Abstract;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
+using System.Text.Encodings.Web;
 
 namespace JobCraft.Repositories.Implementation
 {
@@ -12,47 +15,61 @@ namespace JobCraft.Repositories.Implementation
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly EmailService _emailService;
+        private readonly AppDbContext _dbContext;
 
-        public UserAuthenticationService(UserManager<User> userManager, SignInManager<User> signInamanger)
+        public UserAuthenticationService(UserManager<User> userManager, SignInManager<User> signInamanger, AppDbContext dbContext, EmailService emailService)
         {
             _userManager = userManager;
             _signInManager = signInamanger;
+            _dbContext = dbContext;
+            _emailService = emailService;
         }
 
-        public async Task<bool> LoginAsync(LoginModel model)
+        public async Task<Status> LoginAsync(LoginModel model)
         {
+            var status = new Status();
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
-                return false;
+                status.StatusCode = 0;
+                status.Message = "User does not exist!";
+                return status;
             }
 
             if (!await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                return false;
+                status.StatusCode = 0;
+                status.Message = "Incorrect password or email!";
+                return status;
             }
 
             var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, true, true);
             if (signInResult.Succeeded)
             {
-               
-                return true;
+                status.StatusCode = 1;
+                status.Message = "Successful";
+                return status;
             }
 
-            return false;
+            return status;
         }
-
         public async Task LogOutAsync()
         {
             await _signInManager.SignOutAsync();
         }
 
-        public async Task<bool> RegisterAsync(RegistrationModel model)
+
+        public async Task<Status> RegisterAsync(RegistrationModel model)
         {
+            var status = new Status();
             var userExists = await _userManager.FindByEmailAsync(model.Email);
+
             if (userExists != null)
             {
-                return false;
+                status.StatusCode = 0;
+                status.Message = "User already exists!";
+                return status;
             }
 
             var user = new User
@@ -61,19 +78,26 @@ namespace JobCraft.Repositories.Implementation
                 Lastname = model.LastName,
                 Email = model.Email,
                 UserName = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString(), // Generate a unique security stamp
+                EmailConfirmed = false,
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
-                return true;
+                
+                status.StatusCode = 1;
+                status.Message = "You have been registered successfully! Please check your email to confirm your registration.";
+                return status;
+                
             }
 
-            return false;
+            status.StatusCode = 0;
+            status.Message = "There was an error.";
+            return status;
         }
+
+
     }
 }
