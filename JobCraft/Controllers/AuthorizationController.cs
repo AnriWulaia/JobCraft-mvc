@@ -45,6 +45,7 @@ namespace JobCraft.Controllers
             if (user == null)
             {
                 // Handle user not found
+
                 return View("Error");
             }
 
@@ -54,6 +55,7 @@ namespace JobCraft.Controllers
             {
                 // Email confirmed successfully, log in the user
                 await _signInManager.SignInAsync(user, isPersistent: false);
+                TempData["Alert"] = "შენი მეილი დადასტურებულია!";
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -117,6 +119,17 @@ namespace JobCraft.Controllers
             }
 
             return View("Index", model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(string userEmail)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            if (user == null)
+            {
+                return Json(new { success = false, error = "This user does not exist!" });
+            }
+
+            return Json(new { success = true });
         }
 
         public async Task<IActionResult> Logout()

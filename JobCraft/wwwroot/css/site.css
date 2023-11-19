@@ -227,6 +227,12 @@ footer{
     color: #fccb12;
     padding-right:5px;
 }
+.modal-header, .modal-body, .modal-footer, .modal-content{
+    border:none;
+}
+.pass-modal{
+    top:25%;
+}
 /*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {
