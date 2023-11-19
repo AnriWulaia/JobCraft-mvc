@@ -120,6 +120,18 @@ namespace JobCraft.Controllers
 
             return View("Index", model);
         }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string token, string email)
+        {
+            ViewBag.Email = email;
+            return View("ResetPassword");
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPasswordAsync(string userEmail)
+        {
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> ResetPassword(string userEmail)
         {
@@ -128,8 +140,12 @@ namespace JobCraft.Controllers
             {
                 return Json(new { success = false, error = "This user does not exist!" });
             }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetLink = Url.Action(nameof(ResetPassword), "Authorization", new { token, email = user.Email }, _httpContextAccessor.HttpContext.Request.Scheme);
+            var clickHere = $"Change your password by <a href='{resetLink}'>clicking here</a>";
 
-            return Json(new { success = true });
+            await _emailService.SendEmailAsync(user.Email, "Reset Password", clickHere);
+            return Json(new { success = true, successText = "Email has been sent!" });
         }
 
         public async Task<IActionResult> Logout()

@@ -22,7 +22,7 @@ function submitEmail() {
 
             if (data.success) {
                 // Success scenario
-                $("#forgotPasswordModal").modal('hide'); // Close the modal
+                $("#emailSuccess").text(data.successText);
                 // You can update content or show a success message
             } else {
                 // Handle error scenario
