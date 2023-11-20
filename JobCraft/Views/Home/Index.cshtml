@@ -1,15 +1,6 @@
 ﻿@{
     ViewData["Title"] = "ვაკანსიები";
 }
-@if (TempData["Alert"] != null)
-{
-    <div class="position-fixed start-50 translate-middle-x" style="z-index: 1050; display: block;" id="mailAlert">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            @TempData["Alert"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-}
 
 
 <div class="contaienr-fluid banner text-center">

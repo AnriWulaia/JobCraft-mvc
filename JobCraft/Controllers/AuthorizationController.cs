@@ -125,12 +125,31 @@ namespace JobCraft.Controllers
         public IActionResult ResetPassword(string token, string email)
         {
             ViewBag.Email = email;
+            TempData["ResetPasswordToken"] = token;
             return View("ResetPassword");
         }
         [HttpPost]
-        public async Task<IActionResult> ResetPasswordAsync(string userEmail)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> PasswordReset(ResetPasswordModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                var token = TempData["ResetPasswordToken"]?.ToString();
+                if (user == null)
+                {
+                    return NotFound($"Unable to find that user!");
+                }
+
+                var changePasswordResult = await _userManager.ResetPasswordAsync(user, token, model.Password);
+
+                if (changePasswordResult.Succeeded)
+                {
+                    TempData["Alert"] = "პაროლი წარმატებით შეიცვალა!";
+                    return RedirectToAction("Index");
+                }
+            }
+            return View("ResetPassword");
         }
         [HttpPost]
         public async Task<IActionResult> ResetPassword(string userEmail)

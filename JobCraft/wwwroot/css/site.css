@@ -233,6 +233,9 @@ footer{
 .pass-modal{
     top:25%;
 }
+.alert p{
+    margin-bottom:0px;
+}
 /*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {
