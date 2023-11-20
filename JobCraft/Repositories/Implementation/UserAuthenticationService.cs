@@ -43,8 +43,8 @@ namespace JobCraft.Repositories.Implementation
                 status.Message = "Incorrect password or email!";
                 return status;
             }
-
-            var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, true, true);
+            bool isRemembered = model.RememberMe;
+            var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, isRemembered, true);
             if (signInResult.Succeeded)
             {
                 status.StatusCode = 1;
