@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian&display=swap');
 :root {
     --text: #063473;
+    --back: #D6CE15;
 }
 html {
     font-size: 14px;
@@ -31,7 +32,7 @@ a {
 }
 
 .navbar {
-    background: #D6CE15 !important;
+    background: var(--back) !important;
     box-shadow: 1px 5px 7px 1px rgba(0,0,0,0.05);
     -webkit-box-shadow: 1px 5px 7px 1px rgba(0,0,0,0.05);
     -moz-box-shadow: 1px 5px 7px 1px rgba(0,0,0,0.05);
@@ -85,7 +86,7 @@ header{
     padding-bottom:112px;
 }
 .banner {
-    background: #D6CE15;
+    background: var(--back);
     font-size: 2.1rem;
     padding: 30px;
     font-family: 'Noto Serif Georgian', serif;
@@ -100,7 +101,7 @@ header{
     color: white;
 }
 .registerButton:hover {
-    background: #D6CE15;
+    background: var(--back);
     color:white;
 }
 .mainContent{
@@ -236,6 +237,29 @@ footer{
 .alert p{
     margin-bottom:0px;
 }
+.contact-section {
+    background: var(--back);
+    border-radius: 5px;
+    padding: 90px 0px;
+    display: flex;
+    width: 100%;
+    font-family: 'Noto Serif Georgian', serif;
+}
+.contact-section i{
+    font-size:40px;
+    color:var(--text);
+}
+.contact-section .row{
+    width:100%;
+    margin:0;
+}
+.contact-section p{
+    font-size:20px;
+    margin-top:10px;
+}
+.contact-section span{
+    color:var(--text);
+}
 /*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {
@@ -269,6 +293,12 @@ footer{
     }
     .login-module{
         margin-top:30px;
+    }
+    .contact-section .telephone, .contact-section .email{
+        margin-top:50px;
+    }
+    .contact-section{
+        width:90%;
     }
 }
 @media only screen and (max-width: 575px) {
