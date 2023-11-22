@@ -113,7 +113,7 @@ namespace JobCraft.Controllers
                 else
                 {
                     TempData["msgLogin"] = result.Message;
-                    return RedirectToAction("Index");
+                    return View("Index", model);
                 }
                 
             }

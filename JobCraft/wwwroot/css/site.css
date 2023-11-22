@@ -124,13 +124,27 @@ header{
     background-color: #fff;
     box-shadow:none;
 }
-.userProfile{
-    cursor:pointer;
+
+.menu:before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 30px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent white;
 }
-.userProfile:hover {
-    color: var(--text);
+.menu:after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    width:100%;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent;
 }
 .menu{
+    display:none;
     position:absolute;
     background:white;
     top:80px;
@@ -138,7 +152,9 @@ header{
     list-style:none;
     border-radius:5px;
     padding:5px 10px 5px 10px;
-    margin-left:-90px;
+    margin-left:-107px;
+    font-size:15px;
+    z-index:1;
 }
 .menu li a {
     color: black;
@@ -260,6 +276,21 @@ footer{
 .contact-section span{
     color:var(--text);
 }
+.name:hover + .menu,
+.menu:hover {
+    display: block;
+}
+.name{
+    cursor:pointer;
+}
+.name:hover {
+    color: var(--text);
+}
+.menu-container{
+    height:100%;
+    position:relative;
+}
+
 /*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {
