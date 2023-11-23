@@ -1,8 +1,29 @@
-﻿@{
-
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> userManager
+@{
+    var user = userManager.GetUserAsync(User).Result;
 }
 <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
-<div class="col-md-4 sidebar">
-    d
-</div>
 
+<div class="col-sm-4 col-md-3 vh-100 p-0 sidebar">
+    <div class="name-box mt-5">
+        @user.Firstname @user.Lastname
+    </div>
+    <ul class="mt-4">
+        <li>
+            <a href="">ვაკანსიის დამატება</a>
+        </li>
+        <li>
+            <a href="">პროფილი</a>
+        </li>
+        <li>
+            <a href="">პაროლის შეცვლა</a>
+        </li>
+        <li>
+            <a href="">პროფილის წაშლა</a>
+        </li>
+        <li>
+            <a asp-controller="Authorization" asp-action="Logout">გამოსვლა</a>
+        </li>
+    </ul>
+</div>

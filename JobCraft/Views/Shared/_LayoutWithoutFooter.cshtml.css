@@ -1,9 +1,11 @@
-﻿a.navbar-brand {
+﻿body{
+    overflow:hidden !important;
+}
+a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
-
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

@@ -1,4 +1,29 @@
-﻿.sidebar {
-    position: fixed;
-    font-family: 'Noto Serif Georgian', serif;
+﻿:root {
+    --text: #063473;
+    --back: #D6CE15;
 }
+.sidebar {
+    font-family: 'Noto Serif Georgian', serif;
+    background:white;
+    text-align:center;
+}
+.sidebar ul{
+    list-style:none;
+    padding:0px 15px;
+}
+.sidebar ul li {
+    text-align: left;
+    padding: 15px 5px;
+}
+.sidebar ul li a {
+    color: #696969;
+
+}
+.sidebar ul li:hover {
+    border-radius: 5px;
+    background: rgba(6, 52, 115, 0.08);
+}
+.sidebar ul li:hover a{
+    color:var(--text);
+}
+

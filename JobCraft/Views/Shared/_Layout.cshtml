@@ -59,8 +59,8 @@
                     { 
                         <div class="name" ><a>@user.Firstname @user.Lastname</a> <i class="bi bi-caret-down-fill ms-1"></i></div>
                         <ul class="menu">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-menu-button-wide pe-3"></i>ვაკანსიის დამატება</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person pe-3"></i>პროფილი</a></li>
+                            <li><a class="dropdown-item" asp-controller="Profile" asp-action="VakansiisDamateba"><i class="bi bi-menu-button-wide pe-3"></i>ვაკანსიის დამატება</a></li>
+                            <li><a class="dropdown-item" asp-controller="Profile" asp-action="Index"><i class="bi bi-person pe-3"></i>პროფილი</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-shield-lock pe-3"></i>პაროლის შეცვლა</a></li>
                             <li><a class="dropdown-item" href="Authorization/Logout"><i class="bi bi-box-arrow-right pe-3"></i>გამოსვლა</a></li>
                         </ul>

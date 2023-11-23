@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/JobCraft.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body style="background:#F5F7FC">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
@@ -56,11 +56,11 @@
                         <a class="btn authorization" href="/Authorization">ავტორიზაცია/რეგისტრაცია</a>
                     }
                     else
-                    { 
-                        <div class="name" ><a>@user.Firstname @user.Lastname</a> <i class="bi bi-caret-down-fill ms-1"></i></div>
+                    {
+                        <div class="name"><a>@user.Firstname @user.Lastname</a> <i class="bi bi-caret-down-fill ms-1"></i></div>
                         <ul class="menu">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-menu-button-wide pe-3"></i>ვაკანსიის დამატება</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person pe-3"></i>პროფილი</a></li>
+                            <li><a class="dropdown-item" asp-controller="Profile" asp-action="VakansiisDamateba"><i class="bi bi-menu-button-wide pe-3"></i>ვაკანსიის დამატება</a></li>
+                            <li><a class="dropdown-item" asp-controller="Profile" asp-action="Index"><i class="bi bi-person pe-3"></i>პროფილი</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-shield-lock pe-3"></i>პაროლის შეცვლა</a></li>
                             <li><a class="dropdown-item" href="Authorization/Logout"><i class="bi bi-box-arrow-right pe-3"></i>გამოსვლა</a></li>
                         </ul>
@@ -69,21 +69,21 @@
                 </div>
             </div>
         </nav>
-
-
     </header>
-    @if (TempData["Alert"] != null)
-    {
-        <div class="position-fixed start-50 translate-middle-x" style="z-index: 1050; display: block;" id="mailAlert">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                @TempData["Alert"]
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-    }
 
     <main role="main" class="pb-6">
-        @RenderBody()
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                @await Html.PartialAsync("_leftNavbar")
+
+                
+                <!-- Main Content -->
+                @RenderBody()
+
+            </div>
+        </div>
+
     </main>
 
     <p>© 2023 JobCraft. ყველა უფლება დაცულია.</p>

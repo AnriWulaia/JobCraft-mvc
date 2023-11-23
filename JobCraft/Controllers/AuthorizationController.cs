@@ -101,6 +101,7 @@ namespace JobCraft.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginRegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -108,7 +109,7 @@ namespace JobCraft.Controllers
                 var result = await _userAuthenticationService.LoginAsync(model.LoginModel);
                 if (result.StatusCode == 1)
                 {
-                    return RedirectToAction("", "Home");
+                    return RedirectToAction("", "Home");   
                 }
                 else
                 {
