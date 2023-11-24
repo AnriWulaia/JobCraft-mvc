@@ -17,7 +17,8 @@
 }
 .sidebar ul li a {
     color: #696969;
-
+    display:block;
+    width:100%;
 }
 .sidebar ul li:hover {
     border-radius: 5px;

@@ -110,7 +110,7 @@ header{
 .form-group{
     margin-top:10px;
 }
-.form-group input {
+.form-group input, .form-group select {
     border: 0;
     background-color: #f0f5f7;
     padding: 10px 10px;
@@ -290,7 +290,12 @@ footer{
     height:100%;
     position:relative;
 }
-
+.vacancy-inputs{
+    border-radius:4px;
+}
+.content {
+    font-family: 'Noto Serif Georgian', serif;
+}
 /*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {

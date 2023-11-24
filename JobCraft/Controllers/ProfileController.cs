@@ -11,7 +11,7 @@ namespace JobCraft.Controllers
             return View();
         }
         [HttpGet]
-        [Route("[controller]/gancxadebis-damateba")]
+        [Route("[controller]/vakansiis-damateba")]
         public IActionResult VakansiisDamateba()
         {
             return View();
