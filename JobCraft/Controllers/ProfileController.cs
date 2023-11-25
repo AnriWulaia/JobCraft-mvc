@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using JobCraft.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JobCraft.Controllers
 {
@@ -15,6 +16,19 @@ namespace JobCraft.Controllers
         public IActionResult VakansiisDamateba()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddVacancyAsync(Vacancy model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("VakansiisDamateba", model);
+            }
+            else
+            {
+                return View("Index");
+            }
+            
         }
     }
 }
