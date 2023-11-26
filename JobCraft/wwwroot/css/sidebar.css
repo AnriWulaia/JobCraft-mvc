@@ -6,6 +6,7 @@
     font-family: 'Noto Serif Georgian', serif;
     background:white;
     text-align:center;
+    position:fixed;
 }
 .sidebar ul{
     list-style:none;

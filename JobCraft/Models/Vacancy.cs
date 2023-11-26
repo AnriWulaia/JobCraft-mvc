@@ -18,12 +18,16 @@ namespace JobCraft.Models
         [Required(ErrorMessage = "სამუშაოს მდებარეობა აუცილებელია!")]
         [Display(Name = "მდებარეობა")]
         public string Location { get; set; }
+        [Required(ErrorMessage = "ვაკანსიის კატეგორია აუცილებელია!")]
+        [Display(Name = "კატეგორია")]
+        public string JobCategory { get; set; }
         public DateTime CreatedAt { get; set; }
         [Required(ErrorMessage = "ვაკანსიის ბოლო ვადა აუცილებელია!")]
         [Display(Name = "ვაკანსიის ბოლო ვადა")]
         public DateTime EndsAt { get; set; }
         [Required(ErrorMessage = "კომპანიის მეილი აუცილებელია!")]
         [Display(Name = "კომპანიის მეილი")]
+        [StringLength(35, ErrorMessage = "დასაშვები სიგრძე არის 35!")]
         public string Email { get; set; }
         [Required(ErrorMessage = "კომპანიის ტელეფონის ნომერი აუცილებელია!")]
         [Display(Name = "ტელეფონის ნომერი")]
@@ -37,6 +41,6 @@ namespace JobCraft.Models
         [NotMapped]
         [Display(Name = "კომპანიის ლოგო")]
         public IFormFile? ImageFile { get; set; }
-        public int? UserId { get; set; }
+        public string? UserId { get; set; }
     }
 }

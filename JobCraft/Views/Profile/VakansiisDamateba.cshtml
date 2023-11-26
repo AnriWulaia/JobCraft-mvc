@@ -3,7 +3,7 @@
     Layout = "_LayoutWithoutFooter";
     ViewData["Title"] = "ვაკანსიის დამატება";
 }
-
+<div class="col-md-3 col-sm-4"></div>
 <div class="col-sm-8 content container">
     <h3 class="mt-5">ვაკანსიის დამატება</h3>
     <div class="vacancy-inputs bg-white p-3 mt-4">
@@ -54,9 +54,21 @@
                         <span asp-validation-for="Location" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label asp-for="EndsAt" class="control-label fw-bold"></label>
-                        <input asp-for="EndsAt" id="datePicker" type="date" class="form-control mt-1" aria-required="true" />
-                        <span asp-validation-for="EndsAt" class="text-danger"></span>
+                        <label asp-for="JobCategory" class="control-label fw-bold"></label>
+                        <div class="selectCaregory position-relative">
+                            <select id="category" class="form-control mt-1" asp-for="JobCategory">
+                                <option value="" disabled selected>აირჩიეთ კატეგორია</option>
+                                @foreach (var job in Enum.GetValues(typeof(JobCategory)))
+                                {
+                                    <option value="@job">@job</option>
+                                }
+
+                            </select>
+                            <div class="input-group-append position-absolute">
+                                <i class="bi bi-caret-down"></i>
+                            </div>
+                        </div>
+                        <span asp-validation-for="JobCategory" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -65,7 +77,11 @@
                         <input asp-for="ImageFile" type="file" accept="image/*" class="form-control" aria-required="true" />
                         <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
-
+                    <div class="col-lg-6">
+                        <label asp-for="EndsAt" class="control-label fw-bold"></label>
+                        <input asp-for="EndsAt" id="datePicker" type="date" class="form-control mt-1" aria-required="true" />
+                        <span asp-validation-for="EndsAt" class="text-danger"></span>
+                    </div>
                 </div>
                 <div class="row mt-3">
                     <label asp-for="Content" class="control-label fw-bold pb-3"></label>
