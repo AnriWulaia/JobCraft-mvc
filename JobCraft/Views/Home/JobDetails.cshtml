@@ -1,0 +1,62 @@
+﻿@model JobCraft.Models.Vacancy
+@{
+    ViewData["Title"] = Model.VacancyName;
+}
+<div class="job-head">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8 col-12">
+                <div class="row">
+                    <div class="col-sm-8  d-flex flex-row">
+                        <div class="job-img">
+                            <img src="/Uploads/@Model.LogoName" alt="Company Logo" />
+                        </div>
+                        <div class="job-main-info">
+                            <p class="job-main-title">@Model.VacancyName</p>
+                            <p class="job-main-company">@Model.CompanyName</p>
+                            <div class="job-main-desc d-flex flex-wrap">
+                                <div class="job-main-desc-loc">
+                                    <i class="bi bi-geo-alt"></i><a class="job-main-location">@Model.Location</a>
+                                </div>
+                                <div class="job-main-date-div">
+                                    <i class="bi bi-clock-history"></i><a class="job-main-date">
+                                        @Model.CreatedAt.ToString("dd/MM/yyyy")
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 d-flex flex-column vacancy-date-cv">
+                        <div class="last-date mt-2">
+                            განცხადების ვადა: @Model.EndsAt.ToString("dd/MM/yyyy")
+                        </div>
+                        <div class="send-cv-button mt-3">
+                            <a class="btn">გააგზავნე რეზიუმე</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid vacancy-main mt-5">
+    <div class="row">
+        <div class="col-lg-2">
+
+        </div>
+
+        <div class="col-lg-10">
+            <p class="vacancy-main-header ">განცხადების აღწერა</p>
+            <div class="content-desc">
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+    </div>
+
+</div>

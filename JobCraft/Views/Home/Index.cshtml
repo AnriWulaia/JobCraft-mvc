@@ -1,4 +1,5 @@
-﻿@{
+﻿@model JobCraft.Models.VacancyList
+@{
     ViewData["Title"] = "ვაკანსიები";
 }
 
@@ -6,7 +7,7 @@
 <div class="contaienr-fluid banner text-center">
     <div class="row justify-content-center">
         <div class="col-md-5 col-12">
-            dadada
+            კარიერას თუ ახლა იწყებ, ეს ვაკანსიები შენთვისაა
         </div>
         <div class="col-md-5 col-md-4 col-8">
             <img src="images/Doodle.png" class="img-fluid" />
@@ -14,5 +15,56 @@
     </div>
 </div>
 
+<!--Vacancy List-->
+<div class="container mt-5 VacancyList">
+    <div class="row">
+        <div class="col-md-4">
+            d
+        </div>
+        <div class="col-md-8">
+            <div class="titleVacancies">
+                <h3>სტანდარტული ვაკანსიები</h3>
+            </div>
+            <div class="vacancy-list">
+
+
+                @foreach (var vacancy in Model.Vacancies)
+                {
+
+                    <div class="vacancy-box border-1 border mt-4">
+                        <div class="row">
+                            <div class="col-lg-1 col-2">
+                                <a href="#">
+                                    <img src="/Uploads/@vacancy.LogoName" alt="Company Logo" style="width: 50px; height:50px; border-radius:5px; margin-top:5px">
+                                </a>
+                            </div>
+
+
+                            <div class="col-10">
+                                <div class="vacancy-title">
+                                    <a asp-route="jobdesc" asp-route-id="@vacancy.Id">@vacancy.VacancyName</a>
+                                </div>
+
+                                <div class="vacancy-company d-flex">
+                                    <i class="bi bi-house"></i>
+                                    <a href="#">@vacancy.CompanyName</a>
+                                </div>
+                                <div class="vacancy-type d-flex">
+                                    <i class="bi bi-briefcase"></i>
+                                    <a href="#">@vacancy.JobCategory</a>
+                                </div>
+
+                                <div class="vacancy-location d-flex">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <a href="#">@vacancy.Location</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="~/js/mainPage.js"></script>

@@ -306,6 +306,99 @@ footer{
     min-height: 200px;
     font-family: 'Noto Serif Georgian', serif;
 }
+.vacancyList {
+    font-family: 'Noto Serif Georgian', serif;
+}
+.titleVacancies{
+    color: var(--text);
+}
+.vacancy-box{
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+.vacancy-title a{
+    font-size:22px;
+    margin-bottom:0.5px;
+    color:black;
+}
+.vacancy-title a:hover{
+    color:var(--text);
+}
+.vacancy-company a {
+    font-weight:bold;
+    font-size:20px;
+    color:black;
+}
+.vacancy-location a, .vacancy-type a {
+    font-size: 18px;
+    color: #696969;
+}
+.vacancy-location a:hover, .vacancy-type a:hover{
+    color: black;
+}
+.vacancy-company i, .vacancy-location i, .vacancy-type i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+.job-head {
+    background-color: #edf3fb;
+    padding: 60px 0px;
+    width: 100%;
+}
+.job-img{
+    padding:15px 0px 15px 0px;
+}
+.job-img img{
+    width:100px;
+    border-radius:6px;
+}
+.job-main-title {
+    font-size: 26px;
+    font-family: 'Noto Serif Georgian', serif;
+    margin-bottom:0px;
+}
+.job-main-info{
+    margin-left:20px;
+}
+.job-main-company{
+    font-weight:bold;
+    font-size:20px;
+    margin-bottom:2px;
+}
+.job-main-desc a {
+    color: #696969; 
+    margin-left:3px;
+}
+.last-date {
+    font-size: 16px;
+    color: red;
+    font-family: 'Noto Serif Georgian', serif;
+    text-align:right;
+}
+.vacancy-date-cv{
+    align-items:end;
+}
+.send-cv-button a {
+    color: white;
+    background-color: var(--text);
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-family: 'Noto Serif Georgian', serif;
+}
+.send-cv-button a:hover {
+    background: var(--back);
+    color:white;
+}
+.vacancy-main-header {
+    font-size: 18px;
+    font-family: 'Noto Serif Georgian', serif;
+}
+.content-desc {
+    color: #696969;
+}
+.job-main-desc-loc{
+    margin-right:10px;
+}
 /*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {
@@ -351,11 +444,11 @@ footer{
     .contact-box, .info-box, .information-menu, .credits, .socials {
         text-align: center;
     }
-        .credits p {
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            white-space: normal;
-        }
+    .credits p {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        white-space: normal;
+    }
     .site-title {
         text-align: center !important;
     }

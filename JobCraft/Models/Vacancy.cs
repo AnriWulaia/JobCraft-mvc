@@ -21,9 +21,12 @@ namespace JobCraft.Models
         [Required(ErrorMessage = "ვაკანსიის კატეგორია აუცილებელია!")]
         [Display(Name = "კატეგორია")]
         public string JobCategory { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public DateTime CreatedAt { get; set; }
         [Required(ErrorMessage = "ვაკანსიის ბოლო ვადა აუცილებელია!")]
         [Display(Name = "ვაკანსიის ბოლო ვადა")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndsAt { get; set; }
         [Required(ErrorMessage = "კომპანიის მეილი აუცილებელია!")]
         [Display(Name = "კომპანიის მეილი")]

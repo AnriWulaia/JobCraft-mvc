@@ -1,6 +1,7 @@
 ﻿using JobCraft.Models;
 using JobCraft.Repositories.Abstract;
 using Microsoft.AspNetCore.Identity;
+using sib_api_v3_sdk.Model;
 
 namespace JobCraft.Repositories.Implementation
 {
@@ -27,6 +28,18 @@ namespace JobCraft.Repositories.Implementation
             {
                 return false;
             }
+        }
+        public VacancyList List()
+        {
+            var data = new VacancyList();
+            var list = _dbContext.Vacancy.ToList();
+            data.Vacancies = list.AsQueryable();
+            return data;
+        }
+
+        public Vacancy getById(int id)
+        {
+            return _dbContext.Vacancy.Find(id);
         }
     }
 }

@@ -54,9 +54,7 @@ namespace JobCraft.Controllers
                 }
             }
             _vacancyService.addVacancy(model);
-            return View("Index");
-            
-            
+            return View("Index"); 
         }
     }
 }
