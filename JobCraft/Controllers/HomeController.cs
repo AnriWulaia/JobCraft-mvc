@@ -3,6 +3,7 @@ using JobCraft.Repositories.Abstract;
 using JobCraft.Repositories.Implementation;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace JobCraft.Controllers
 {
@@ -17,6 +18,26 @@ namespace JobCraft.Controllers
 
         public IActionResult Index()
         {
+            var categories = Enum.GetValues(typeof(JobCategory))
+                         .Cast<JobCategory>()
+                         .Select(e => new SelectListItem
+                         {
+                             Value = e.ToString(),
+                             Text = e.ToString()
+                         })
+                         .ToList();
+
+            var locations = Enum.GetValues(typeof(Locations))
+                                .Cast<Locations>()
+                                .Select(e => new SelectListItem
+                                {
+                                    Value = e.ToString(),
+                                    Text = e.ToString()
+                                })
+                                .ToList();
+
+            ViewBag.Categories = categories;
+            ViewBag.Locations = locations;
             var vacancies = _vacancyService.List();
             return View(vacancies);
         }

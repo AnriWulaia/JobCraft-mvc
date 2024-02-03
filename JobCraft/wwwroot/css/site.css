@@ -399,6 +399,50 @@ footer{
 .job-main-desc-loc{
     margin-right:10px;
 }
+.filter-btn {
+    background-color: var(--text);
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 17px;
+    color: var(--back);
+    font-family: 'Noto Serif Georgian', serif;
+    align-items:flex-end;
+    margin-left:10px;
+}
+.filter-btn:hover {
+    background-color: var(--back);
+    color:var(--text);
+}
+.filter-div{
+    background-color:white;
+    align-items:center;
+    border-radius:5px;
+    padding: 15px 0px;
+    display:flex;
+    justify-content:center;
+}
+.filter-div form {
+    font-size: 13px;
+    color:var(--text);
+}
+.filter-div form i {
+    font-size:20px;
+}
+.input-title{
+
+}
+.filter-div select, .filter-div input{
+    border:none;
+}
+.filter-div input:focus-visible, .filter-div select:focus-visible {
+    outline: none;
+}
+.header-text {
+    font-family: 'Noto Serif Georgian', serif;
+    color: var(--text);
+    font-size:43px;
+}
 /*Medias*/
 @media only screen and (max-width: 991px) {
     .authDiv {

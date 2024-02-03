@@ -7,6 +7,7 @@ namespace JobCraft.Repositories.Abstract
         bool addVacancy(Vacancy model);
         VacancyList List();
         Vacancy getById(int id);
+        VacancyList FilterList(string title = "", string category = "", string location = "");
 
     }
 }

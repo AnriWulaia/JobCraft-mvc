@@ -37,6 +37,33 @@ namespace JobCraft.Repositories.Implementation
             return data;
         }
 
+        public VacancyList FilterList(string title = "", string category = "", string location = "")
+        {
+            var data = new VacancyList();
+
+            IQueryable<Vacancy> query = _dbContext.Vacancy;
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                query = query.Where(v => v.VacancyName.Contains(title));
+            }
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                query = query.Where(v => v.JobCategory == category);
+            }
+
+            if (!string.IsNullOrEmpty(location))
+            {
+                query = query.Where(v => v.Location == location);
+            }
+
+            data.Vacancies = query.ToList().AsQueryable();
+
+            return data;
+            
+        }
+
         public Vacancy getById(int id)
         {
             return _dbContext.Vacancy.Find(id);
